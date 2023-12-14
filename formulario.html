@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="height: auto !important;">
+        <a class="navbar-brand" href="index.html">
+            <img src="https://i.ebayimg.com/images/g/rfgAAOSwy6NgT~Xf/s-l1600.jpg" alt="Logo" height="100px" weight="100px">
+        </a>       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="formulario.html">Registro</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container container-form">
+        <h2 class="text-center mb-4" style="font-size: 1.5em;">Registro para uso de Pokedex</h2>
+        <p>Por favor responda las siguientes preguntas de manera honesta:</p>
+        <form id="myForm" onsubmit="validarForm(event)">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Ingrese su nombre" required>
+                <span id="nameError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico" required>
+                <span id="emailError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Número de Teléfono:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <select class="custom-select" id="countryCode" name="countryCode">
+                            <option value="+1">Estados Unidos (+1)</option>
+                            <option value="+44">Reino Unido (+44)</option>
+                            <option value="+49">Alemania (+49)</option>
+                            <option value="+52">México (+52)</option>
+                            <option value="+33">Francia (+33)</option>
+                            <option value="+81">Japón (+81)</option>
+                            <option value="+7">Rusia (+7)</option>
+                            <option value="+86">China (+86)</option>
+                            <option value="+91">India (+91)</option>
+                            <option value="+55">Brasil (+55)</option>
+                            <option value="+234">Nigeria (+234)</option>
+                            <option value="+27">Sudáfrica (+27)</option>
+                            <option value="+61">Australia (+61)</option>
+                            <option value="+1">Canadá (+1)</option>
+                            <option value="+82">Corea del Sur (+82)</option>
+                            <option value="+52">México (+52)</option>
+                            <option value="+34">España (+34)</option>
+                            <option value="+54">Argentina (+54)</option>
+                            <option value="+593">Ecuador (+593)</option>
+                            <option value="+358">Finlandia (+358)</option>
+                            <option value="+49">Alemania (+49)</option>
+                            <option value="+30">Grecia (+30)</option>
+                            <option value="+852">Hong Kong (+852)</option>
+                            <option value="+354">Islandia (+354)</option>
+                            <option value="+353">Irlanda (+353)</option>
+                            <option value="+39">Italia (+39)</option>
+                            <option value="+81">Japón (+81)</option>
+                            <option value="+60">Malasia (+60)</option>
+                            <option value="+31">Países Bajos (+31)</option>
+                            <option value="+64">Nueva Zelanda (+64)</option>
+                            <option value="+47">Noruega (+47)</option>
+                            <option value="+92">Pakistán (+92)</option>
+                            <option value="+51">Perú (+51)</option>
+                            <option value="+63">Filipinas (+63)</option>
+                            <option value="+48">Polonia (+48)</option>
+                            <option value="+351">Portugal (+351)</option>
+                            <option value="+7">Rusia (+7)</option>
+                            <option value="+65">Singapur (+65)</option>
+                            <option value="+46">Suecia (+46)</option>
+                            <option value="+41">Suiza (+41)</option>
+                            <option value="+66">Tailandia (+66)</option>
+                            <option value="+90">Turquía (+90)</option>
+                            <option value="+380">Ucrania (+380)</option>
+                            <option value="+44">Reino Unido (+44)</option>
+                            <option value="+598">Uruguay (+598)</option>
+                            <option value="+58">Venezuela (+58)</option>
+                        </select>
+                    </div>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Ingrese su número de teléfono" required>
+                </div>
+                <span id="phoneError" class="error"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Ingrese su dirección" required>
+                <span id="addressError" class="error"></span>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" style="margin-top: 2em; font-size: 1.2em;" onclick="validateAndRedirect()">Ingresar</button>
+
+        </form>
+    </div> 
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
+

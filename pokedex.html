@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="./css/pokedex.css">
+    <style>
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .boton-inicio {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .boton-inicio:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <img src="https://i.ebayimg.com/images/g/rfgAAOSwy6NgT~Xf/s-l1600.jpg">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <label for="select-tipo">Tipos:</label>
+                    <select class="select-tipo" id="select-tipo">
+                        <option value="ver-todos" selected>Ver todos</option>
+                        <option value="normal">Normal</option>
+                        <option value="fire">Fuego</option>
+                        <option value="water">Agua</option>
+                        <option value="grass">Planta</option>
+                        <option value="electric">Electrico</option>
+                        <option value="ice">Hielo</option>
+                        <option value="poison">Veneno</option>
+                        <option value="ground">Tierra</option>
+                        <option value="flying">Volador</option>
+                        <option value="psychic">Psiquico</option>
+                        <option value="bug">Bicho</option>
+                        <option value="rock">Roca</option>
+                        <option value="ghost">Fantasma</option>
+                        <option value="dragon">Dragon</option>
+                        <option value="steel">Acero</option>
+                        <option value="fairy">Hada</option>
+                    </select>
+                </li>
+                <li class="nav-item">
+                    <label for="select-peso">Peso:</label>
+                    <select class="select-peso" id="select-peso">
+                        <option value="50/..." selected>Todos</option>
+                        <option value="0/10">0-10kg</option>
+                        <option value="10/20">10-20kg</option>
+                        <option value="20/30">20-30kg</option>
+                        <option value="30/40">30-40kg</option>
+                        <option value="40/50">40-50kg</option>
+                        <option value="50/60">50-60kg</option>
+                        <option value="60/300">60-...kg</option>
+                    </select>
+                </li>
+            </ul>
+            <a href="index.html">
+                <button class="boton-inicio">Ir a Inicio</button>
+            </a>
+            <p id="nombreMostrado"></p>
+        </nav>
+    </header>
+    <main>
+        <div id="todos">
+            <div class="pokemon-todos" id="listaPokemon">
+            </div>
+            <div id="mensaje-container">
+                <p id="mensaje-resultado"></p>
+            </div>            
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nombreParam = urlParams.get('nombre');
+        
+            if (nombreParam) {
+                document.getElementById('nombreMostrado').innerText = `Bienvenido, ${decodeURIComponent(nombreParam)}!`;
+            }
+        });
+    </script>
+
+    <script src="./js/pokedex.js"></script>
+</body>
+</html>
